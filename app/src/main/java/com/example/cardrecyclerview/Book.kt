@@ -1,6 +1,6 @@
 package com.example.cardrecyclerview
 
-val bookList = mutableListOf<Book>()
+//val bookList = mutableListOf<Book>()
 
  val BOOK_ID_EXTRA = "bookExtra"
 
@@ -9,5 +9,5 @@ val bookList = mutableListOf<Book>()
     var author: String,
     var title: String,
     var description: String,
-    val id: Int? = bookList.size
+    val id: Int
 )

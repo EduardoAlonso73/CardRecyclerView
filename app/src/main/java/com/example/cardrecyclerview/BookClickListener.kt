@@ -1,6 +1,4 @@
-package code.with.cal.cardviewrecyclerviewtutorial
-
-import com.example.cardrecyclerview.Book
+package com.example.cardrecyclerview
 
 interface BookClickListener
 {

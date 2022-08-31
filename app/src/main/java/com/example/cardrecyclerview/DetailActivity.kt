@@ -2,6 +2,7 @@ package com.example.cardrecyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.cardrecyclerview.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity()
@@ -27,10 +28,9 @@ class DetailActivity : AppCompatActivity()
 
     private fun bookFromID(bookID: Int): Book?
     {
-        for(book in bookList)
+        for(book in ProviderBook.bookList)
         {
-            if(book.id == bookID)
-                return book
+            if(book.id == bookID) return  book
         }
         return null
     }
