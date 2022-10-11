@@ -2,10 +2,10 @@ package com.example.cardrecyclerview
 
 //val bookList = mutableListOf<Book>()
 
- val BOOK_ID_EXTRA = "bookExtra"
+ const val BOOK_ID_EXTRA = "bookExtra"
 
  data class Book(
-    var cover: Int,
+    var cover: String,
     var author: String,
     var title: String,
     var description: String,

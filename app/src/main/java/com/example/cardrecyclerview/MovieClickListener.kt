@@ -1,6 +1,6 @@
 package com.example.cardrecyclerview
 
-interface BookClickListener
+interface MovieClickListener
 {
     fun onClick(book: Book)
 }

@@ -1,14 +1,12 @@
 package com.example.cardrecyclerview
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cardrecyclerview.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity(), BookClickListener {
+class MainActivity : AppCompatActivity(), MovieClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var cardAdapter: CardAdapter
 
@@ -22,15 +20,32 @@ class MainActivity : AppCompatActivity(), BookClickListener {
 
     }
 
+
     override fun onClick(book: Book) {
-        val intent = Intent(applicationContext, DetailActivity::class.java)
+        val arg=Bundle()
+        arg.putLong(getString(R.string.arg_id),book.id.toLong())
+        launchViewFragment(arg)
+
+      /*  val intent = Intent(applicationContext, DetailActivity::class.java)
         intent.putExtra(BOOK_ID_EXTRA, book.id)
         Toast.makeText(this, book.id.toString(), Toast.LENGTH_SHORT).show()
-        startActivity(intent)
+        startActivity(intent)*/
     }
 
+
+    private fun launchViewFragment(args: Bundle?=null) {
+        val fragmentView=DetaitFragment()
+        if(args!=null)fragmentView.arguments=args
+        val fragmentManager=supportFragmentManager
+        val fragmentTransaction=fragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.containerMain,fragmentView)
+        fragmentTransaction.addToBackStack(null)// Me permite regresar al main activity
+        fragmentTransaction.commit()
+    }
+
+
     private fun setupRecyclerView(){
-        cardAdapter = CardAdapter(ProviderBook.bookList, this)
+        cardAdapter = CardAdapter(ProviderMovie.bookList, this)
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(applicationContext, 2)
             adapter=cardAdapter

@@ -10,12 +10,12 @@ fun SearchView.searchBook(cardAdapter: CardAdapter){
         override fun onQueryTextChange(msg: String): Boolean {
 
             val filterersProduct:MutableList<Book> = mutableListOf()
-            for (item in ProviderBook.bookList) {
+            for (item in ProviderMovie.bookList) {
                 if (item.title.lowercase(Locale.getDefault()).contains(msg.lowercase(Locale.getDefault()))) {
                     filterersProduct.add(item)
                 }
             }
-            println("==============="+ProviderBook.bookList.size)
+            println("==============="+ProviderMovie.bookList.size)
             println(">> >> >> >>"+filterersProduct.size)
             if (filterersProduct.isEmpty()) {
                 Toast.makeText(context, "No Data Found..", Toast.LENGTH_SHORT).show()
@@ -24,4 +24,7 @@ fun SearchView.searchBook(cardAdapter: CardAdapter){
             return false
         }
     })
+
+
+
 }
